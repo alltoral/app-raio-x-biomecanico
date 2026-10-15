@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Despertar · Raio-X Biomecânico</title>
+<title>Liberdade · Raio-X Biomecânico</title>
 <meta name="theme-color" content="#0F0F0E">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Despertar">
+<meta name="apple-mobile-web-app-title" content="Liberdade">
 <link rel="icon" type="image/png" href="assets/simbolo.png">
 <link rel="apple-touch-icon" href="assets/simbolo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -241,7 +241,7 @@ h1,h2,h3,p{margin:0}
     sos:'<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
     medalha:'<svg width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#121212" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
   };
-  var marca = '<div class="marca"><img src="assets/simbolo.png" alt=""><span>CORPO PRIMAZ</span><i></i><small>DESPERTAR</small></div>';
+  var marca = '<div class="marca"><img src="assets/simbolo.png" alt=""><span>CORPO PRIMAZ</span><i></i><small>LIBERDADE</small></div>';
   function mini7(nos){ return '<span class="mini7" aria-hidden="true">'+NOS.map(function(_,k){return '<i class="'+(nos.indexOf(k)>-1?'on':'')+'"></i>';}).join('')+'</span>'; }
   function estadoCp(c){ return E.feitos.indexOf(c.n)>-1 ? 'ok' : (c.n===proximo() ? 'agora' : 'lock'); }
   function proximo(){ for (var i=0;i<CPS.length;i++){ if (E.feitos.indexOf(CPS[i].n)<0) return CPS[i].n; } return null; }
@@ -271,7 +271,7 @@ h1,h2,h3,p{margin:0}
         '<span class="rotulo">Seu próximo checkpoint · '+String(c.n).padStart(2,'0')+'</span><h2>'+c.t+'</h2><span class="meta">'+mini7(c.nos)+c.r+' · cerca de 15 min</span></button>'+
         '<button class="continuar" data-cp="'+c.n+'">Continuar de onde parei '+ic.seta+'</button>'
         : '<div class="crise"><span class="rotulo">Jornada completa</span><h1>Você concluiu os 12 checkpoints.</h1><p>Siga com as reavaliações para manter o padrão.</p></div>')+
-      '<div class="progresso"><div class="progresso-topo"><b>Sua jornada no Despertar</b><span>'+E.feitos.length+' de '+CPS.length+'</span></div><div class="barra"><i style="width:'+pct+'%"></i></div></div>'+
+      '<div class="progresso"><div class="progresso-topo"><b>Sua jornada no Liberdade</b><span>'+E.feitos.length+' de '+CPS.length+'</span></div><div class="barra"><i style="width:'+pct+'%"></i></div></div>'+
       '<div class="secao"><h3>Checkpoints</h3><span class="rotulo mudo">Na ordem certa</span></div>'+
       '<ol class="jornada">'+lista+'</ol>'+
       '<a class="credito" href="https://alltoral.netlify.app" target="_blank" rel="noopener">Desenvolvido por <b>ALL TORAL</b></a>'+
