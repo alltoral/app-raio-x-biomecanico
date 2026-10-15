@@ -133,7 +133,12 @@ h1,h2,h3,p{margin:0}
 .etapa div{display:flex;flex-direction:column}
 .etapa b{font-size:15px;font-weight:600}
 .etapa span{font-size:13px;color:var(--mudo)}
-.aviso-conteudo{margin-top:14px;font-size:13px;color:var(--mudo);text-align:center}
+.bloco{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+.bloco p{font-size:15px;color:var(--osso);line-height:1.5}
+.protocolos{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.protocolos li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:14px;background:var(--carvao-2);border:1px solid var(--linha)}
+.protocolos b{font-size:14px;font-weight:500;line-height:1.35}
+.protocolos .tag{flex:none;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ambar-claro);border:1px solid rgba(212,160,23,.4);border-radius:999px;padding:4px 9px}
 .concluir{position:sticky;bottom:calc(84px + env(safe-area-inset-bottom, 0px));margin-top:22px;width:100%;min-height:58px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:17px;background:linear-gradient(180deg,var(--ambar-claro),var(--ambar));color:var(--tinta);box-shadow:0 14px 34px -12px rgba(212,160,23,.8)}
 .concluir.feito{background:var(--cartao);color:var(--ambar-claro);border:1px solid rgba(212,160,23,.5);box-shadow:none}
 
@@ -201,20 +206,20 @@ h1,h2,h3,p{margin:0}
 (function(){
   var CHAVE = 'despertar-membros-v1';
   var NOS = ['Cabeça','Ombros','Mãos','Coluna','Quadris','Joelhos','Pés'];
-  /* Checkpoints (Manual dos 3 Módulos, 11/09). Troque nomes, imagens e vídeos aqui quando o cliente fechar a lista final. */
+  /* Checkpoints: as 12 fases do documento "Checkpoints Raio-X Biomecânico". a = o que avalia, p = protocolos [nome, recurso]. */
   var CPS = [
-    {n:1,  t:'Mobilidade do quadril',            r:'Quadril',         nos:[4],          img:'ilu-cama',           vid:'teste-t1'},
-    {n:2,  t:'Extensão e rotação torácica',      r:'Coluna',          nos:[3],          img:'ilu-parede',         vid:'teste-t2'},
-    {n:3,  t:'Controle da báscula pélvica',      r:'Pelve',           nos:[3,4],        img:'foto-homem-caixa'},
-    {n:4,  t:'Transverso e respiração',          r:'Centro do corpo', nos:[3],          img:'t1'},
-    {n:5,  t:'Agachamento com as duas pernas',   r:'Pernas',          nos:[4,5],        img:'ilu-unipodal',       vid:'teste-t3'},
-    {n:6,  t:'Mobilidade do tornozelo',          r:'Tornozelo',       nos:[6],          img:'t3'},
-    {n:7,  t:'Controle do joelho',               r:'Joelho',          nos:[5],          img:'ilu-unipodal'},
-    {n:8,  t:'Ombro e transição cervicotorácica',r:'Ombro',           nos:[0,1],        img:'t2'},
-    {n:9,  t:'Cadeia posterior',                 r:'Costas e pernas', nos:[3,4,5],      img:'foto-homem-caixa'},
-    {n:10, t:'Cervical profunda',                r:'Pescoço',         nos:[0],          img:'hero-mobile'},
-    {n:11, t:'Respiração costal baixa',          r:'Tórax',           nos:[3],          img:'foto-mulher-parede'},
-    {n:12, t:'Integração global',                r:'Corpo inteiro',   nos:[0,1,2,3,4,5,6], img:'hero-desktop'}
+    {"n": 1, "t": "Postura parada", "r": "Postura", "nos": [0, 1, 3, 4], "img": "foto-mulher-parede", "a": "Como o corpo se organiza parado: cabeça, ombros, pelve e costelas.", "p": [["Reeducação postural ativa na parede", "Exercício"], ["Pontos de digitopressão para a postura", "Digitopressão"], ["Pontos auriculares da postura", "Digitopressão"], ["Kinesio tape postural", "Bandagem"]]},
+    {"n": 2, "t": "Análise da marcha", "r": "Pés e quadris", "nos": [4, 5, 6], "img": "hero-mobile", "a": "Como você caminha e onde o passo perde o alinhamento.", "p": [["Reeducação da marcha", "Exercício"], ["Exercícios de correção: tibial anterior e glúteo médio", "Exercício"], ["Digitopressão para o padrão de marcha", "Digitopressão"]]},
+    {"n": 3, "t": "Agachamento livre e acima da cabeça", "r": "Tornozelo e quadril", "nos": [1, 4, 5, 6], "img": "ilu-unipodal", "vid": "teste-t3", "a": "Agachamento livre e com os braços acima da cabeça.", "p": [["Mobilização de tornozelo e quadril", "Mobilização"], ["Fortalecimento: goblet squat e agachamento na parede", "Exercício"], ["Digitopressão para o agachamento", "Digitopressão"], ["Kinesio tape de joelho", "Bandagem"]]},
+    {"n": 4, "t": "Testes de mobilidade", "r": "Quadril, coluna e ombro", "nos": [1, 3, 4], "img": "ilu-cama", "vid": "teste-t1", "a": "Thomas, Ober, Wall Angel e mobilidade de ombro.", "p": [["Alongamento do iliopsoas", "Alongamento"], ["Alongamento do TFL", "Alongamento"], ["Mobilidade torácica e do ombro", "Mobilização"], ["Mobilidade de ombro", "Mobilização"], ["Digitopressão para mobilidade", "Digitopressão"]]},
+    {"n": 5, "t": "Mobilidade neural", "r": "Nervos das pernas", "nos": [3, 4, 5], "img": "t1", "a": "Elevação da perna estendida (ASLR e SLR) e Slump.", "p": [["Neural flossing do nervo ciático", "Neurodinâmica"], ["Alongamento dos posteriores da coxa", "Alongamento"], ["Digitopressão para tensão neural", "Digitopressão"], ["Kinesio tape de descompressão", "Bandagem"]]},
+    {"n": 6, "t": "Estabilidade do core", "r": "Centro do corpo", "nos": [3, 4], "img": "foto-homem-caixa", "a": "Pontes, estabilidade rotacional e flexão de tronco.", "p": [["Progressão de core: dead bug, bird dog e prancha", "Exercício"], ["Integração core e glúteo: ponte e clamshell", "Exercício"], ["Digitopressão para o core", "Digitopressão"], ["Pontos auriculares do core", "Digitopressão"], ["Kinesio tape de core", "Bandagem"]]},
+    {"n": 7, "t": "Controle em uma perna", "r": "Glúteo e joelho", "nos": [4, 5, 6], "img": "t3", "a": "Agachamento em uma perna, Y Balance e step down.", "p": [["Glúteo médio: progressão para uma perna", "Exercício"], ["Glúteo máximo: levantamento terra unilateral e step up", "Exercício"], ["Mobilidade de quadril 90/90", "Alongamento"], ["Digitopressão para controle unipodal", "Digitopressão"]]},
+    {"n": 8, "t": "Membros superiores", "r": "Ombros e escápulas", "nos": [1, 2], "img": "ilu-parede", "vid": "teste-t2", "a": "Y Balance de membro superior e CKCUES.", "p": [["Fortalecimento escapular: serratus punch, Y, T, W e I", "Exercício"], ["Mobilidade escapular e do ombro", "Mobilização"], ["Digitopressão para membro superior", "Digitopressão"], ["Kinesio tape de ombro", "Bandagem"]]},
+    {"n": 9, "t": "Alta demanda", "r": "Saltos e aterrissagem", "nos": [4, 5, 6], "img": "t2", "a": "Hop test e drop jump.", "p": [["Potência e controle reativo", "Exercício"], ["Propriocepção e estabilidade", "Exercício"], ["Digitopressão para alta demanda", "Digitopressão"]]},
+    {"n": 10, "t": "Avaliação energética", "r": "MTC", "nos": [0, 1, 2, 3, 4, 5, 6], "img": "douglas-03-jaleco", "a": "Testes manuais por meridiano, da Medicina Tradicional Chinesa.", "p": [["Princípio do cuidado por meridiano", "Orientação"], ["Digitopressão por meridiano", "Digitopressão"], ["Reflexologia nos pés", "Digitopressão"], ["Reflexologia nas mãos", "Digitopressão"]]},
+    {"n": 11, "t": "Correlação dento-neural", "r": "Mandíbula e cervical", "nos": [0], "img": "hero-desktop", "a": "A relação entre dentes, mordida e dores à distância.", "p": [["Digitopressão para focos dentários", "Digitopressão"], ["Massagem peri-oral e mandibular", "Automassagem"], ["Pontos auriculares dentários", "Digitopressão"], ["Orientação para avaliação odontológica", "Orientação"]]},
+    {"n": 12, "t": "Mobilização Y e W", "r": "Ombros e coluna", "nos": [1, 3], "img": "foto-mulher-parede", "a": "Alongamentos ativos em Y e em W, com progressão.", "p": [["Y stretching completo", "Alongamento"], ["W stretching completo", "Alongamento"], ["Progressão com resistência", "Exercício"], ["Integração com a respiração", "Respiração"], ["Digitopressão integrativa", "Digitopressão"]]}
   ];
 
   function iso(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
@@ -291,9 +296,10 @@ h1,h2,h3,p{margin:0}
       '<div class="etapas">'+
         '<div class="etapa"><i>1</i><div><b>Teste e filme</b><span>Faça o teste e grave com o celular</span></div></div>'+
         '<div class="etapa"><i>2</i><div><b>Compare com o gabarito</b><span>Passou ou reprovou?</span></div></div>'+
-        '<div class="etapa"><i>3</i><div><b>Exercícios de correção</b><span>O protocolo deste ponto</span></div></div>'+
+        '<div class="etapa"><i>3</i><div><b>Exercícios de correção</b><span>Siga o protocolo abaixo</span></div></div>'+
       '</div>'+
-      '<p class="aviso-conteudo">As instruções detalhadas deste checkpoint entram aqui.</p>'+
+      '<div class="bloco"><span class="rotulo">O que este checkpoint avalia</span><p>'+c.a+'</p></div>'+
+      '<div class="bloco"><span class="rotulo">Seu protocolo</span><ul class="protocolos">'+c.p.map(function(x){ return '<li><b>'+x[0]+'</b><span class="tag">'+x[1]+'</span></li>'; }).join('')+'</ul></div>'+
       '<button class="concluir'+(feito?' feito':'')+'" id="concluir">'+(feito?ic.check+' Checkpoint concluído':'Concluir checkpoint '+ic.check)+'</button>'+
     '</div>';
   }
