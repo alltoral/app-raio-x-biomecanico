@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Liberdade · Raio-X Biomecânico</title>
+<title>Raio-X Biomecânico · Área de membros</title>
 <meta name="theme-color" content="#0F0F0E">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Liberdade">
+<meta name="apple-mobile-web-app-title" content="Raio-X">
 <link rel="icon" type="image/png" href="assets/simbolo.png">
 <link rel="apple-touch-icon" href="assets/simbolo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,9 +53,9 @@ h1,h2,h3,p{margin:0}
 /* Marca */
 .marca{display:flex;align-items:center;gap:10px;padding-top:calc(14px + env(safe-area-inset-top, 0px));padding-bottom:12px;border-bottom:1px solid rgba(212,160,23,.22)}
 .marca img{width:30px;height:30px;object-fit:contain;mix-blend-mode:lighten}
-.marca span{font-family:var(--marca);font-size:13px;font-weight:600;letter-spacing:.26em;color:var(--ambar)}
+.marca span{font-family:var(--marca);font-size:12px;font-weight:600;letter-spacing:.2em;white-space:nowrap;color:var(--ambar)}
 .marca i{flex:1}
-.marca small{font-family:var(--marca);font-size:10px;font-weight:600;letter-spacing:.24em;color:var(--mudo)}
+.marca small{font-family:var(--marca);font-size:9px;font-weight:600;letter-spacing:.14em;white-space:nowrap;color:var(--mudo)}
 /* Topo */
 .topo{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:18px 14px}
 .ola{display:flex;align-items:center;gap:12px;min-width:0}
@@ -246,7 +246,7 @@ h1,h2,h3,p{margin:0}
     sos:'<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
     medalha:'<svg width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#121212" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
   };
-  var marca = '<div class="marca"><img src="assets/simbolo.png" alt=""><span>CORPO PRIMAZ</span><i></i><small>LIBERDADE</small></div>';
+  var marca = '<div class="marca"><img src="assets/simbolo.png" alt=""><span>CORPO PRIMAZ</span><i></i><small>RAIO-X BIOMECÂNICO</small></div>';
   function mini7(nos){ return '<span class="mini7" aria-hidden="true">'+NOS.map(function(_,k){return '<i class="'+(nos.indexOf(k)>-1?'on':'')+'"></i>';}).join('')+'</span>'; }
   function estadoCp(c){ return E.feitos.indexOf(c.n)>-1 ? 'ok' : (c.n===proximo() ? 'agora' : 'lock'); }
   function proximo(){ for (var i=0;i<CPS.length;i++){ if (E.feitos.indexOf(CPS[i].n)<0) return CPS[i].n; } return null; }
@@ -276,7 +276,7 @@ h1,h2,h3,p{margin:0}
         '<span class="rotulo">Seu próximo checkpoint · '+String(c.n).padStart(2,'0')+'</span><h2>'+c.t+'</h2><span class="meta">'+mini7(c.nos)+c.r+' · cerca de 15 min</span></button>'+
         '<button class="continuar" data-cp="'+c.n+'">Continuar de onde parei '+ic.seta+'</button>'
         : '<div class="crise"><span class="rotulo">Jornada completa</span><h1>Você concluiu os 12 checkpoints.</h1><p>Siga com as reavaliações para manter o padrão.</p></div>')+
-      '<div class="progresso"><div class="progresso-topo"><b>Sua jornada no Liberdade</b><span>'+E.feitos.length+' de '+CPS.length+'</span></div><div class="barra"><i style="width:'+pct+'%"></i></div></div>'+
+      '<div class="progresso"><div class="progresso-topo"><b>Sua jornada no Raio-X Biomecânico</b><span>'+E.feitos.length+' de '+CPS.length+'</span></div><div class="barra"><i style="width:'+pct+'%"></i></div></div>'+
       '<div class="secao"><h3>Checkpoints</h3><span class="rotulo mudo">Na ordem certa</span></div>'+
       '<ol class="jornada">'+lista+'</ol>'+
       '<a class="credito" href="https://alltoral.netlify.app" target="_blank" rel="noopener">Desenvolvido por <b>ALL TORAL</b></a>'+
